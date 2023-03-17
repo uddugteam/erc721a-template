@@ -59,5 +59,5 @@ npm run prettier
 To check if code is format:
 
 ```bash
-npm run prettier:check
+npm run lint
 ```
