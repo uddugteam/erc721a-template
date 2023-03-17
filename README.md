@@ -44,9 +44,7 @@ It is recommended to write tasks for each contract method that can be used durin
 
 TODO: add description
 
-## Linters
-
-### Prettier
+## Prettier
 
 This project use [prettier](https://prettier.io/) code formatter for solidity and typescript files.
 Configuration and ignore list you can see in given `.prettierrc.yaml` and `.prettierignore` files. To
