@@ -1,6 +1,6 @@
 import "@nomicfoundation/hardhat-toolbox";
-import {deploy, ping} from "./scripts/ERC721Contract";
-import {task} from "hardhat/config";
+import { deploy, ping } from "./scripts/ERC721Contract";
+import { task } from "hardhat/config";
 
 task("deploy", "Deploy contact").setAction(async (args, hre) => {
   await hre.run("compile");
@@ -9,7 +9,7 @@ task("deploy", "Deploy contact").setAction(async (args, hre) => {
 
 task("ping", "Ping contract by using name() method").setAction(async (args, hre) => {
   await ping(hre);
-})
+});
 
 module.exports = {
   solidity: "0.8.18",
@@ -25,5 +25,5 @@ module.exports = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY as string,
-  }
-}
+  },
+};
