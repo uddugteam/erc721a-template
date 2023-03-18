@@ -4,6 +4,16 @@ import { task } from "hardhat/config";
 
 task("deploy", "Deploy contact").setAction(async (args, hre) => {
   await hre.run("compile");
+
+  console.log("Testing contract before deploy");
+
+  const tests = await hre.run('test');
+
+  if (tests > 0) {
+    console.log("Deploy stopped. Please check unit tests");
+    return
+  }
+
   await deploy(hre);
 });
 
