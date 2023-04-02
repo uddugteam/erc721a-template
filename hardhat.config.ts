@@ -7,11 +7,11 @@ task("deploy", "Deploy contact").setAction(async (args, hre) => {
 
   console.log("Testing contract before deploy");
 
-  const tests = await hre.run('test');
+  const tests = await hre.run("test");
 
   if (tests > 0) {
     console.log("Deploy stopped. Please check unit tests");
-    return
+    return;
   }
 
   await deploy(hre);
