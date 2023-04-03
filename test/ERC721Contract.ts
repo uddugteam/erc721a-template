@@ -3,14 +3,14 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 
 describe("ERC721Contract unit tests", function () {
-  const MName = "Name";
-  const MSymbol = "Symbol";
+  const Name = "Name";
+  const Symbol = "Symbol";
 
   async function deployMetazokuFixture() {
     const [owner, address1, address2, address3] = await ethers.getSigners();
 
     const ERC721Contract = await ethers.getContractFactory("ERC721Contract");
-    const contract = await ERC721Contract.deploy(MName, MSymbol);
+    const contract = await ERC721Contract.deploy(Name, Symbol);
 
     return { contract, owner, address1, address2, address3 };
   }
@@ -31,13 +31,13 @@ describe("ERC721Contract unit tests", function () {
     it("Should have right name", async function () {
       const { contract } = await loadFixture(deployMetazokuFixture);
 
-      expect(await contract.name()).to.equal(MName);
+      expect(await contract.name()).to.equal(Name);
     });
 
     it("Should have right symbol", async function () {
       const { contract } = await loadFixture(deployMetazokuFixture);
 
-      expect(await contract.symbol()).to.equal(MSymbol);
+      expect(await contract.symbol()).to.equal(Symbol);
     });
 
     it("Should have 0 total supply", async function () {
