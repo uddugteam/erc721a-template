@@ -5,11 +5,9 @@ coverage.json
 typechain
 typechain-types
 .idea
-.addresses
+addresses
 
 # Hardhat files
 cache
 artifacts
 
-/addresses/
-/yarn-error.log

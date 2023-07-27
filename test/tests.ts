@@ -10,10 +10,9 @@ describe("ERC721Contract unit tests", function () {
   async function deployFixture() {
     const [owner, address1, address2, address3] = await ethers.getSigners();
 
-    const contractFileName = __filename.split("/").splice(-1)[0].split(".").splice(0)[0];
-
-    const Contract = await ethers.getContractFactory(contractFileName); // RENAME!
-    const contract = await Contract.deploy(Name, Symbol); // RENAME!
+    // RENAME!
+    const contract = await ethers.deployContract("ERC721Contract", [Name, Symbol]);
+    await contract.waitForDeployment();
 
     return { contract, owner, address1, address2, address3 };
   }
@@ -28,7 +27,7 @@ describe("ERC721Contract unit tests", function () {
     it("Should deploy with proper address", async function () {
       const { contract } = await loadFixture(deployFixture);
 
-      expect(contract.address).to.be.properAddress;
+      expect(contract.target).to.be.properAddress;
     });
 
     it("Should have right name", async function () {
